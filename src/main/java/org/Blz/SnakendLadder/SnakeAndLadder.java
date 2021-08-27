@@ -8,7 +8,7 @@ public class SnakeAndLadder {
     public static void main(String[] args) {
         System.out.println("Welcome to The Snake and Ladder Game");
 
-        while (CurrentPosition <= 100) {
+        while (CurrentPosition < 100) {
 
             int DiceNum = (int) (Math.floor(Math.random() * 10) % 6 + 1);
             System.out.println("Your Dice Roll Number is " + DiceNum);
@@ -21,7 +21,10 @@ public class SnakeAndLadder {
                 CurrentPosition += 0;
                 System.out.println("You got No Play and Your current position is " + CurrentPosition);
             } else if (Options == Ladder) {
-                CurrentPosition += DiceNum;
+                if (CurrentPosition+ DiceNum<=100){
+                    CurrentPosition += DiceNum;
+                }
+
                 System.out.println("You got Ladder and Your current position is " + CurrentPosition);
             } else if (Options == Snake) {
                 if (CurrentPosition <= 0) {
